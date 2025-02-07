@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobseek</title>
+    <link rel="stylesheet" href="./Assets/CSS/styles.css">
+    <script src="./Assets/Scripts/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
+</head>
+<body class="backgroundimg">
+    <header class="Header">
+        <div class="jobtraillogo">
+            <a href="index.html"><img src="Assets/Logo/Logo.png" alt="Jobtrail"  height="100px"></a>
+        </div>
+        <nav class="navbar1">
+            <a class ="item" href="About Us .html">About Us</a>
+            <a class ="item" href="News.html">Read</a>
+            <a class ="item" href="Results.html">Results</a>
+            <a class ="item" href="Career Guide.html">Career</a>
+        </nav>
+        <div class="rdL">
+            <img class ="rdL__img" src="Assets/Logo/Facebook.png" alt="Facebook">
+            <img class ="rdL__img" src="Assets/Logo/Instagram.png" alt="Instagram">
+            <img class ="rdL__img" src="Assets/Logo/Twitter.png" alt="Twitter">
+            <img class ="rdL__img" src="Assets/Logo/Discord .png" alt="Discord">
+        </div>
+        <div class="language">
+            <span class="icon">&#127760;</span>
+            <div class="dropdown">
+                <button class="button">English ▼</button>
+                <div class="content" id="content">
+                    <a href="#">English</a>
+                    <a href="#">Vietnamese</a>
+                    <a href="#">..........</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar2">
+            <a href="signinandlogin2.html"><button class="navbar2_button">Get Start</button></a>
+            <a href="signinandlogin2.html"><button class="navbar2_button">Log in</button></a>        </nav>
+    </header>
+    <div class="hiimg">
+
+    </div>
+    <div class="searchbar">
+        <form class="search-bar" action="https://cse.google.com/cse" method="get" onsubmit="appendJobs()" target="_blank">
+            <input type="hidden" name="cx" value="36534bcac186f4811" />
+            <input type="text"class="search-box" id="userQuery" placeholder="Search..." />
+            <input type="hidden" name="q" id="finalQuery" />
+            <button type="submit" class="search-button">Search</button>
+            <div style="color: white; margin-top: 10px; margin-left: 10px;">Search your wanted job!</div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
