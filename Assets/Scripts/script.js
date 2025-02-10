@@ -1,38 +1,47 @@
-document.getElementById('signupForm').addEventListener('submit', async (event) => {
-  event.preventDefault();  
+const form = document.getElementById('signupForm');
 
-  const firstName = document.querySelector('input[name="firstname"]').value;
-  const lastName = document.querySelector('input[name="lastname"]').value;
-  const email = document.querySelector('input[id="Email"]').value;
-  const password = document.querySelector('input[name="Password"]').value;
-  const gender = document.querySelector('input[name="Gender"]:checked').value;
+if (form) {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); 
 
-  try {
-    const response = await fetch('http://mybackend.great-site.net/connect.php', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
+    console.log("✅ Form submission intercepted!"); 
+
+  
+    const firstName = document.querySelector('input[name="firstname"]').value;
+    const lastName = document.querySelector('input[name="lastname"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    const gender = document.querySelector('input[name="gender"]:checked')?.value || '';
+
+    try {
+      const response = await fetch('http://mybackend.great-site.net/connect.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
         firstname: firstName,
         lastname: lastName,
         email: email,
         password: password,
         gender: gender
-      })
-    });
+        })
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (response.ok && result.success) {
-      alert('Sign-up successful!');
-      window.location.href = "/welcome";  // Optional redirect
-    } else {
-      alert('Sign-up failed: ' + result.message);
+      if (response.ok && result.success) {
+        alert('✅ Sign-up successful!');
+        window.location.href = "/welcome"; 
+      } else {
+        alert('❌ Sign-up failed: ' + result.message);
+      }
+    } catch (error) {
+      alert('❌ An error occurred. Please try again.');
+      console.error('Error:', error);
     }
-  } catch (error) {
-    alert('An error occurred. Please try again.');
-    console.error('Error:', error);
-  }
-});
+  });
+} else {
+  console.error("❌ Form with ID 'signupForm' not found! Check your HTML.");
+}
 
 function appendJobs() {
     // Get what the user typed
