@@ -6,12 +6,16 @@ if (form) {
 
     console.log("✅ Form submission intercepted!"); 
 
+    console.log("✅ Fetch request is starting..."); 
   
     const firstName = document.querySelector('input[name="firstname"]').value;
     const lastName = document.querySelector('input[name="lastname"]').value;
     const email = document.querySelector('input[name="email"]').value;
     const password = document.querySelector('input[name="password"]').value;
     const gender = document.querySelector('input[name="gender"]:checked')?.value || '';
+
+    console.log("🔍 Data being sent:", { firstname: firstName, lastname: lastName, email, password, gender }); 
+
 
     try {
       const response = await fetch('http://mybackend.great-site.net/connect.php', {
@@ -25,6 +29,9 @@ if (form) {
         gender: gender
         })
       });
+
+      console.log("✅ Fetch request sent!");
+
 
       const result = await response.json();
 
@@ -44,14 +51,12 @@ if (form) {
 }
 
 function appendJobs() {
-    // Get what the user typed
+
     const userQuery = document.getElementById("userQuery").value.trim();
     
-    // Append the word 'jobs' to the query
-    // e.g. if user typed "marketing", final query becomes "marketing jobs"
+
     const withJobs = userQuery ? `${userQuery} jobs` : 'jobs';
   
-    // Put it in the hidden field so the form sends "q=marketing jobs"
     document.getElementById("finalQuery").value = withJobs;
   }
   
